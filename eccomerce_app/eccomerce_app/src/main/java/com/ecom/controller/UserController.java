@@ -3,6 +3,7 @@ package com.ecom.controller;
 import com.ecom.payload.ApiResponse;
 import com.ecom.payload.UserDto;
 import com.ecom.service.impl.UserServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class UserController {
     private UserServiceImpl userService;
 
     @PostMapping("/")
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto)
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto)
     {
         userDto.setActive(true);
         UserDto user = this.userService.createUser(userDto);
@@ -47,7 +48,7 @@ public class UserController {
     }
 
     @PutMapping("/{userId}")
-    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto, @PathVariable int userId)
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable int userId)
     {
         UserDto userDto1 = this.userService.updateUser(userDto, userId);
         return new ResponseEntity<UserDto>(userDto1, HttpStatus.OK);
