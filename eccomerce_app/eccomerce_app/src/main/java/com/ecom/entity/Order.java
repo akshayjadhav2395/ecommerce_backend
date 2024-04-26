@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -21,9 +23,12 @@ public class Order {
     private int orderId;
     private String orderStatus;
     private String paymentStatus;
-    private Date createdAt;
+    private Date orderCreated;
     private Date orderDelivered;
     private String billingAddress;
-    private double totalAmount;
-
+    private double orderAmount;
+    @OneToOne
+    private User user;
+    @OneToMany(mappedBy = "order")
+    private Set<OrderItem> orderItems = new HashSet<>();
 }

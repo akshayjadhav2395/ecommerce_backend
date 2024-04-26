@@ -23,5 +23,6 @@ public class Product {
     private boolean isLive;
     private boolean stock = true;
     private String imageName;
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Category category;
 }

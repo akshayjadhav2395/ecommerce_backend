@@ -17,9 +17,9 @@ public class OrderDto {
     private int orderId;
     private String orderStatus;
     private String paymentStatus;
-    private Date createdAt;
+    private Date orderCreated;
     private Date orderDelivered;
     private String billingAddress;
-    private double totalAmount;
+    private double orderAmount;
 
 }

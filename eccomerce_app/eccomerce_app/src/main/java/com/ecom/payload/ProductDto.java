@@ -1,5 +1,6 @@
 package com.ecom.payload;
 
+import com.ecom.entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,5 @@ public class ProductDto {
     private boolean live;
     private boolean stock = true;
     private String imageName;
+    private CategoryDto category;
 }

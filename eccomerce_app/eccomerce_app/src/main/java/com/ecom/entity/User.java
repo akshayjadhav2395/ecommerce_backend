@@ -29,6 +29,9 @@ public class User {
     private boolean active;
     private String address;
     private Date createAt;
-
+    @OneToOne
+    private Cart cart;
+    @OneToOne
+    private Order order;
 
 }

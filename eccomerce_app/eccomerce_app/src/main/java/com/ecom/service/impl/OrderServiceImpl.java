@@ -60,8 +60,8 @@ public class OrderServiceImpl implements OrderServiceI {
         order.setOrderStatus(orderDto.getOrderStatus());
         order.setBillingAddress(orderDto.getBillingAddress());
         order.setPaymentStatus(orderDto.getPaymentStatus());
-        order.setCreatedAt(orderDto.getCreatedAt());
-        order.setTotalAmount(orderDto.getTotalAmount());
+        order.setOrderCreated(orderDto.getOrderCreated());
+        order.setOrderAmount(orderDto.getOrderAmount());
 
         Order saveOrder = this.orderRepository.save(order);
 

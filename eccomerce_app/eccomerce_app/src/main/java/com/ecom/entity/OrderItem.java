@@ -6,22 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cart {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int cartId;
+    private int orderItemId;
+    private double totalProductPrice;
     @OneToOne
-    private User user;
-    @OneToMany(mappedBy = "cart")
-    private Set<CartItem> cartItems = new HashSet<>();
-
+    private Product product;
+    private int quantity;
+    @ManyToOne
+    private Order order;
 }
