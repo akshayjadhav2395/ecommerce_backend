@@ -1,5 +1,6 @@
 package com.ecom.controller;
 
+import com.ecom.AppConstants;
 import com.ecom.entity.Category;
 import com.ecom.entity.Product;
 import com.ecom.payload.ApiResponse;
@@ -30,11 +31,13 @@ public class ProductController {
 
     @GetMapping("/products/")
     public ResponseEntity<ProductResponse> getAllProduct(
-            @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
-            @RequestParam(value = "pageSize", defaultValue = "5", required = false) int pageSize
+            @RequestParam(value = "pageNumber", defaultValue = AppConstants.PAGE_NUMBER_STRING, required = false) int pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = AppConstants.PAGE_SIZE_STRING, required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = AppConstants.SORT_BY_STRING, required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = AppConstants.SORT_DIR_STRING, required = false) String sortDir
     )
     {
-        ProductResponse allProduct = this.productService.getAllProducts(pageNumber, pageSize);
+        ProductResponse allProduct = this.productService.getAllProducts(pageNumber, pageSize, sortBy, sortDir);
         return new ResponseEntity<ProductResponse>(allProduct, HttpStatus.OK);
     }
 

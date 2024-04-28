@@ -29,7 +29,7 @@ public class User {
     private boolean active;
     private String address;
     private Date createAt;
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     private Cart cart;
     @OneToOne
     private Order order;

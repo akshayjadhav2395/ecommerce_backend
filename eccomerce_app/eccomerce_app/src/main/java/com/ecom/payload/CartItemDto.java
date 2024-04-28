@@ -1,27 +1,24 @@
-package com.ecom.entity;
+package com.ecom.payload;
 
-import jakarta.persistence.*;
+import com.ecom.entity.Cart;
+import com.ecom.entity.Product;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartItem {
+public class CartItemDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int cartItemId;
-    @OneToOne
-    private Product product;
+    private ProductDto product;
     private int quantity;
     private double totalProductPrice;
-    @ManyToOne
-    private Cart cart;
 
     public double getTotalProductPrice()
     {
@@ -31,4 +28,5 @@ public class CartItem {
     {
         this.totalProductPrice=this.product.getProductPrice()*this.quantity;
     }
+
 }

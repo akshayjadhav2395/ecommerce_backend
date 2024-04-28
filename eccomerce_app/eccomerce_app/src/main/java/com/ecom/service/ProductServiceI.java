@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface ProductServiceI {
 
     public ProductDto saveProduct(ProductDto productDto, int categoryId);
-    public ProductResponse getAllProducts(int pageNumber, int pageSize);
+    public ProductResponse getAllProducts(int pageNumber, int pageSize, String sortBy, String sortDir);
     public ProductDto getSingleProduct(int productId);
     public ProductDto updateProduct(ProductDto productDto, int productId);
     public void deleteProduct(int productId);
