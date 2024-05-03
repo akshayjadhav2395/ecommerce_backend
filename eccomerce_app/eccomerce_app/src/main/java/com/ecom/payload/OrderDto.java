@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -21,5 +23,7 @@ public class OrderDto {
     private Date orderDelivered;
     private String billingAddress;
     private double orderAmount;
+    private UserDto user;
+    private Set<OrderItemDto> orderItems = new HashSet<>();
 
 }

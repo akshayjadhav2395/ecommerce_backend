@@ -1,27 +1,20 @@
-package com.ecom.entity;
+package com.ecom.payload;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderItem {
+public class OrderItemDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int orderItemId;
-    private double totalProductPrice;
-    @OneToOne
-    private Product product;
+    private ProductDto product;
     private int quantity;
-    @ManyToOne
-    private Order order;
+    private double totalProductPrice;
 
     public double getTotalProductPrice()
     {
@@ -29,6 +22,7 @@ public class OrderItem {
     }
     public void setTotalProductPrice()
     {
-        this.totalProductPrice=this.product.getProductPrice()* this.quantity;
+        this.totalProductPrice=this.product.getProductPrice()*this.quantity;
     }
+
 }

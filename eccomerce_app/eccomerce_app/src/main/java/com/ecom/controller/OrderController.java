@@ -2,6 +2,7 @@ package com.ecom.controller;
 
 import com.ecom.payload.ApiResponse;
 import com.ecom.payload.OrderDto;
+import com.ecom.payload.OrderRequest;
 import com.ecom.payload.ProductDto;
 import com.ecom.service.impl.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,12 @@ public class OrderController {
     @Autowired
     private OrderServiceImpl orderService;
 
+    String userName="aks123@gmail.com";
+
     @PostMapping("/")
-    public ResponseEntity<OrderDto> saveProduct(@RequestBody OrderDto orderDto)
+    public ResponseEntity<OrderDto> saveProduct(@RequestBody OrderRequest orderRequest)
     {
-        OrderDto order = this.orderService.createOrder(orderDto);
+        OrderDto order = this.orderService.createOrder(orderRequest, userName);
         return new ResponseEntity<OrderDto>(order, HttpStatus.CREATED);
     }
 

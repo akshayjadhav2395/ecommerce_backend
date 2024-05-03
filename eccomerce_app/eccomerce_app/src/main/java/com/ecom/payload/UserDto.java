@@ -27,7 +27,7 @@ public class UserDto {
     @NotEmpty
     @Size(min = 4, message = "password must be of 4 digit")
     private String password;
-    @NotEmpty
+    @NotEmpty   
     private String about;
     private String gender;
     private long phoneNo;
